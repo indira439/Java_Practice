@@ -1,5 +1,6 @@
 package com.stackroute.pe1;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,6 +14,14 @@ public class VowelOrConsonantTest {
         public void setUp() {
             this.vowelOrConsonant = new VowelOrConsonant();
         }
+
+        @After
+        public void teardown() {
+        //arrange
+        System.out.println("Inside After");
+        vowelOrConsonant= null;
+        }
+
 
         @Test
         public void givenStringShouldReturnNotALetter() {
