@@ -4,24 +4,25 @@ import java.util.Scanner;
 
 public class TomJerry {
 
-    public static void main(String[] args) {
-
-        int input;
-
-        Scanner number = new Scanner(System.in);
-
-        System.out.println("Enter the input number:");
-        input = number.nextInt();
-
-        if ((input % 2 == 0) && (input >= 20 && input <= 30)) {
-            System.out.println("Jerry");
+    public String tomOrJerryFinder(int inputNum) {
+        String returnString = "Not in between 20 and 30";
+        if (isBetween20And30(inputNum)){
+            if (inputNum % 2 == 0){
+                returnString = "Jerry";
+            }
+            else {
+                returnString = "Tom";
+            }
         }
-
-        if ((input % 2 != 0) && (input >= 20 && input <= 30)) {
-            System.out.println("Tom");
-        }
-
+        return returnString;
     }
 
+    private static boolean isBetween20And30(int num){
+        boolean boo = false;
+        if ( (num >= 20) && (num <= 30) ){
+            boo = true;
+        }
+        return boo;
+    }
 }
 
