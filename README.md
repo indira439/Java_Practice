@@ -1,6 +1,5 @@
-# Java_Practice
-# Java_Practice PE1
 
+# Java_Practice PE1
 # Solved the following tasks in java
 
 ## class name used: Palindrome
