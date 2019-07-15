@@ -1,38 +1,30 @@
 package com.stackroute.pe1;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class GuessTarget {
 
+    public String guessTargetNumber(int guessNum){
+        //Create a random variable
+        Random random = new Random();
 
-        public static void main(String[] args) {
-            Random rand=new Random();
-            int target = rand.nextInt(100);
-            int guess=0;
+        //Pick a random number within the "min" and "max" limit
+        int target = random.nextInt(100);
 
-            Scanner sc = new Scanner(System.in);
-
-            System.out.println("Guess the number Between 1 to 100");
-            guess = sc.nextInt();
-
-
-            System.out.println("Generated random number "+target);
-
-
-            while (target != guess) {
-                if (guess > target) {
-                    System.out.println("Guessed number is greater than target");
-                    break;
+        //Loop for checking whether guessed number matches target or not
+            while (target != guessNum) {
+                if (guessNum > target) {
+                    return ("Guessed number is greater than target");
                 } else {
-                    System.out.println("Guessed number is lesser than target");
-                    break;
+                    return ("Guessed number is lesser than target");
                 }
             }
-            System.out.println("You Guessed Correct");
+         //Guessed number is equals to target
+            return ("You Guessed Correct");
 
         }
     }
+
 
 
 
