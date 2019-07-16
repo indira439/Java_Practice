@@ -7,7 +7,7 @@ package com.stackroute.pe1;
  * if they are greater than 25.
  */
 public class Palindrome {
-    public String palindromeTest(long number) {
+    public String palindromeChecker(long number) {
         if (checkPalindrome(number)) {
             if (checkSumOfEvenNumbers(number)) {
                 return (number + "is a palindrome and the sum of even numbers is greater than 25");
@@ -25,7 +25,7 @@ public class Palindrome {
      *  to check if sum of even digits is above 25
      * True or false based on the sum of digits
      */
-    private boolean checkSumOfEvenNumbers(long number) {
+    public boolean checkSumOfEvenNumbers(long number) {
         long n = number;
         int sum = 0;
         long tempNumber;
@@ -45,7 +45,7 @@ public class Palindrome {
      * to check if it's palindrome or not.
      * Return true if the given number is palindrome or not.
      */
-    private boolean checkPalindrome(long number) {
+    public boolean checkPalindrome(long number) {
         long n = number;
         long reverseOfNumber = 0;
         while (n != 0) {

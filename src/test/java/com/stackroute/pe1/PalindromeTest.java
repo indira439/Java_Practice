@@ -11,33 +11,24 @@ public class PalindromeTest {
     Palindrome palindrome;
 
     @Before
-    public void setUp(){
-        //arrange
-        this.palindrome = new Palindrome();
+    public void setUp() throws Exception {
+        palindrome = new Palindrome();
     }
 
     @After
-    public void teardown() {
-        //arrange
-        System.out.println("Inside After");
-       palindrome= null;
+    public void tearDown() throws Exception {
+        palindrome = null;
     }
 
     @Test
-    public void givenIntegerShouldReturnPalindromeGreaterThan25() {
-        //act
-        String actualResult = this.palindrome.palindromeSum(4444444);
-        //assert
-        assertEquals("Palindrome and greater than 25", actualResult);
+    public void givenNumberShouldReturnMessage() {
+        long number = 2468642;
+        String result = palindrome.palindromeChecker(number);
+        /*Assert*/
+        assertEquals(number + "is a palindrome and the sum of even numbers is greater than 25", result);
+        number = 12345;
+        result = palindrome.palindromeChecker(number);
+        assertEquals(number + "is not a palindrome", result);
+
     }
-
-    @Test
-    public void givenIntegerShouldReturnPalindromeLesserThan25() {
-        //act
-        String actualResult = this.palindrome.palindromeSum(99899);
-        //assert
-        assertEquals("Palindrome and lesser than 25", actualResult);
-    }
-
-
 }
