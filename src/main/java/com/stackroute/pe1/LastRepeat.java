@@ -1,23 +1,22 @@
 package com.stackroute.pe1;
 
-import java.util.Scanner;
-
-
+/**
+ * Practice Exercise Question - 10
+ * Given 2 inputs , where input1 is string and input 2 is integer value, the last n characters should
+ * repeat n number of times in the output String.
+ */
 public class LastRepeat {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the string");
-        String str = sc.nextLine();
-        System.out.println("Enter number of repeats");
-        int number = sc.nextInt();
-        for (int i = 0;i<str.length()-number; i++) {
-            System.out.print(str.charAt(i));
+    public String repeatTheLastString(String string, int number) {
+        for (int i = 0; i < string.length() - number; i++) {
+            return (string);
         }
-        for (int i = 0; i < number+1; i++) {
-            for (int j = str.length() - number; j < str.length(); j++) {
-                System.out.print(str.charAt(j));
+        for (int i = 0; i < number + 1; i++) {
+            for (int j = string.length() - number; j < string.length(); j++) {
+                System.out.print(string.charAt(j));
             }
         }
+        return  null;
     }
 }
+

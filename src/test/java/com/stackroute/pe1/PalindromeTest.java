@@ -24,14 +24,6 @@ public class PalindromeTest {
     }
 
     @Test
-    public void givenIntegerShouldReturnNotAPalindrome() {
-        //act
-        String actualResult = this.palindrome.palindromeSum(45634);
-        //assert
-        assertEquals("Not a palindrome", actualResult);
-    }
-
-    @Test
     public void givenIntegerShouldReturnPalindromeGreaterThan25() {
         //act
         String actualResult = this.palindrome.palindromeSum(4444444);

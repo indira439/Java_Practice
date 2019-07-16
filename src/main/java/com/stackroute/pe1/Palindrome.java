@@ -1,31 +1,57 @@
 package com.stackroute.pe1;
 
-import java.util.Scanner;
-import java.lang.*;
-
-public class Palindrome  {
-    public String palindromeSum(long inputNum){
-        String returnResult = "Not a palindrome";
-            if ( (isSumOfEvenNum(inputNum) > 25) ) {
-                returnResult = "Palindrome and greater than 25";
+/**
+ * Practice Exercise Question - 1
+ * Class to check if given number is palindrome or not.
+ * If the number is palindrome then the even digits in the number are added to check
+ * if they are greater than 25.
+ */
+public class Palindrome {
+    public String palindromeTest(long number) {
+        if (checkPalindrome(number)) {
+            if (checkSumOfEvenNumbers(number)) {
+                return (number + "is a palindrome and the sum of even numbers is greater than 25");
+            } else {
+                return (number + "is a palindrome and the sum of even numbers is less than 25");
             }
-            else {
-                returnResult = "Palindrome and smaller than 25";
-            }
+        } else {
+            return (number + "is not a palindrome");
         }
     }
 
-
-
-    private int isSumOfEvenNum(long number){
-        int sumOfEvenNum = 0;
-        long localNumber = number;
-        while (localNumber > 0){
-            if ( (localNumber % 10) % 2 == 0 ){
-                sumOfEvenNum += localNumber % 10;
+    /**
+     * Function to check if the sum of digits in the given number is greater than 25 or not.
+     *
+     *  to check if sum of even digits is above 25
+     * True or false based on the sum of digits
+     */
+    private boolean checkSumOfEvenNumbers(long number) {
+        long n = number;
+        int sum = 0;
+        long tempNumber;
+        while (n != 0) {
+            tempNumber = n % 10;
+            if (tempNumber % 2 == 0) {
+                sum += tempNumber;
             }
-            localNumber = localNumber / 10;
+            n = n / 10;
         }
-        return sumOfEvenNum;
+        return sum >= 25;
+    }
+
+    /**
+     * Function to check if the number is palindrome or not.
+     *
+     * to check if it's palindrome or not.
+     * Return true if the given number is palindrome or not.
+     */
+    private boolean checkPalindrome(long number) {
+        long n = number;
+        long reverseOfNumber = 0;
+        while (n != 0) {
+            reverseOfNumber = (reverseOfNumber * 10) + n % 10;
+            n = n / 10;
+        }
+        return (reverseOfNumber == number);
     }
 }
