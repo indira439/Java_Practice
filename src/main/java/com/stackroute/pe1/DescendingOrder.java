@@ -1,6 +1,5 @@
 package com.stackroute.pe1;
 
-import java.util.ArrayList;
 import java.util.*;
 
 /**
@@ -10,41 +9,39 @@ import java.util.*;
  * b. after sorting sum all the even numbers, the sum should be greater than 15 .
  * c. if sum is more than 15,then print output as true or false.
  */
+
 public class DescendingOrder {
-    public static void main(String[] args) {
-        ArrayList<Integer> digits = new ArrayList<Integer>();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the number");
-
-        //read the input number from user
-        int input_number = scanner.nextInt();
-
-        //initialize sum to 0
+    public boolean sumOfInteger(int inputInteger) {
+        /**First sort the Integer digits in desc order.
+         If the sum of the digits is grater than 15 then it will return true else false.*/
+        String inputIntegerInString = String.valueOf(inputInteger);
+        boolean boo = false;
+        int[] arrayOfSortedDigits;
         int sum = 0;
-
-        //loop for adding the integers
-        for (int i = 0; input_number > 0; i++) {
-
-            int buffer = input_number % 10;
-            if (buffer % 2 == 0) {
-                sum = sum + buffer;
+        arrayOfSortedDigits = sortedArray(inputIntegerInString);
+        for (int num : arrayOfSortedDigits) {
+            if (num % 2 == 0) {
+                sum += num;
             }
-            digits.add(buffer);
-            input_number = input_number / 10;
         }
-        //sort the digits in ascending order
-        Collections.sort(digits);
-        //reverse the digits in descending order
-        Collections.reverse(digits);
-        System.out.println(digits);
-        System.out.println(sum);
         if (sum > 15) {
-            //return true if sum is greater than 15
-            System.out.println("True");
-        } else {
-            //return false if sum is less than 15
-            System.out.println("False");
+            boo = true;
         }
+        return boo;
+    }
+
+    public int[] sortedArray(String strAr) {
+        /**Sort the Integer digits in desc order and returns it.*/
+        int[] ar = new int[strAr.length()];
+        int[] ar1 = new int[strAr.length()];
+        for (int i = 0; i < strAr.length(); i++) {
+            ar[i] = Integer.parseInt(String.valueOf(strAr.charAt(i)));
+        }
+        Arrays.sort(ar);
+        for (int i = 0, j = strAr.length() - 1; i < strAr.length(); i++, j--) {
+            ar1[i] = ar[j];
+        }
+        return ar1;
 
     }
 }
