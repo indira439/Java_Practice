@@ -5,18 +5,20 @@ package com.stackroute.pe1;
  * Given 2 inputs , where input1 is string and input 2 is integer value, the last n characters should
  * repeat n number of times in the output String.
  */
-public class LastRepeat {
+public class RepeatString {
 
-    public String repeatTheLastString(String string, int number) {
+    public String lastRepeat(String string, int number) {
+        StringBuilder stringBuilder = new StringBuilder();
+
         for (int i = 0; i < string.length() - number; i++) {
-            return (string);
+            stringBuilder.append(string.charAt(i));
         }
         for (int i = 0; i < number + 1; i++) {
             for (int j = string.length() - number; j < string.length(); j++) {
-                System.out.print(string.charAt(j));
+                stringBuilder.append(string.charAt(j));
             }
         }
-        return  null;
+        return stringBuilder.toString();
     }
 }
 
