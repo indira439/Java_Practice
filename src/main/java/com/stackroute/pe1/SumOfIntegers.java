@@ -1,7 +1,4 @@
 package com.stackroute.pe1;
-
-import java.util.Scanner;
-
 /**
  * Practice Exercise Question - 5
  * Class reads an unspecified number of integer arguments using Scanner Class
@@ -9,20 +6,33 @@ import java.util.Scanner;
  */
 public class SumOfIntegers {
 
-    public static void main(String[] args) {
+    public String sumOfIntegers(String inputString) {
 
-        int input, sum = 0;
-        Scanner number = new Scanner(System.in);
-        System.out.println("Enter the input numbers:");
+        String[] string = inputString.split(" ");
+        boolean output = true;
+        int sum = 0;
 
-        while ((input = number.nextInt()) != 0) {
-            sum = sum + input;
+        for (String str : string) {
+            for (int i = 0; i < str.length(); i++) {
+                if ((!(Character.isDigit(str.charAt(i)))) &&
+                        (str.charAt(i) != '-') &&
+                        (str.charAt(i) != '+')) {
+                    output = false;
+                }
+
+            }
         }
-        System.out.println(""+sum);
 
+        if (output) {
+            for (String str : string) {
+                sum += Integer.parseInt(str);
+            }
+            return String.valueOf(sum);
+        } else {
+            return "Non Integer Value";
+        }
     }
 
 
-
-    }
+}
 
