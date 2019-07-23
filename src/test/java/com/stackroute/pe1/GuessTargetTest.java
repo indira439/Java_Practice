@@ -9,7 +9,6 @@ import static org.junit.Assert.*;
 public class GuessTargetTest {
     GuessTarget guessTarget;
 
-
     @Before
     public void setup() {
         //arrange
@@ -28,6 +27,15 @@ public class GuessTargetTest {
         String result  = guessTarget.guessTargetNumber(15);
         //assert
         assertEquals("Guessed number is lesser than target",result);
+
+    }
+
+    @Test
+    public void givenGuessedIntegerShouldReturnTargetLesserThanGuessedNumberFailure() {
+        //act
+        String result  = guessTarget.guessTargetNumber(15);
+        //assert
+        assertNotEquals("Guessed number is greater than target",result);
 
     }
 
