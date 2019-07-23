@@ -1,5 +1,6 @@
 package com.stackroute.pe1;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,8 +16,13 @@ public class TomJerryTest {
         this.tomJerry = new TomJerry();
     }
 
+    @After
+    public void tearDown() {
+        tomJerry = null;
+    }
+
     @Test
-    public void givenIntegerShouldReturnNotInRange() {
+    public void givenIntegerNotBetween20And30ShouldReturnNotInRange() {
         //act
         String actualResult = this.tomJerry.tomOrJerryFinder(10);
         //assert
@@ -24,7 +30,7 @@ public class TomJerryTest {
     }
 
     @Test
-    public void givenIntegerShouldReturnTom() {
+    public void givenOddIntegerBetween20And30ShouldReturnTom() {
         //act
         String actualResult = this.tomJerry.tomOrJerryFinder(21);
         //assert
@@ -32,10 +38,26 @@ public class TomJerryTest {
     }
 
     @Test
-    public void givenIntegerShouldReturnJerry() {
+    public void givenOddIntegerBetween20And30ShouldReturnTomFailure() {
+        //act
+        String actualResult = this.tomJerry.tomOrJerryFinder(21);
+        //assert
+        assertNotEquals("Jerry", actualResult);
+    }
+
+    @Test
+    public void givenEvenIntegerBetween20And30ShouldReturnJerry() {
         //act
         String actualResult = this.tomJerry.tomOrJerryFinder(24);
         //assert
         assertEquals("Jerry", actualResult);
+    }
+
+    @Test
+    public void givenEvenIntegerBetween20And30ShouldReturnJerryFailure() {
+        //act
+        String actualResult = this.tomJerry.tomOrJerryFinder(24);
+        //assert
+        assertNotEquals("Tom", actualResult);
     }
 }
