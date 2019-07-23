@@ -30,11 +30,17 @@ public class ReverseStringTest {
         assertEquals("udni", actualResult);
     }
 
-    @Test(expected = NullPointerException.class)
-    public void givenNullShouldReturnShouldThrowNullpointException() {
+    @Test
+    public void givenStringShouldReturnTheReverseFailure() {
         //act
-        String result = reverseString.reverseStringChecker(null);
+        String actualResult = reverseString.reverseStringChecker("indu");
         //assert
+        assertNotEquals("uni", actualResult);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void givenNullShouldReturnShouldThrowNullPointerException() {
+        reverseString.reverseStringChecker(null);
     }
 
 }
